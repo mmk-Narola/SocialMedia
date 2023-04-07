@@ -1,0 +1,44 @@
+<div class="card">
+  <mat-card class="example-card">
+    <mat-card-title>Add Social Post</mat-card-title>
+    <form [formGroup]="SocialPost" (ngSubmit)="onSubmitPost()">
+      <mat-card-content>
+        <mat-form-field>
+          <div>
+            <mat-toolbar>
+              <input
+                matInput
+                [value]="
+                  selectedFileNames.length ? selectedFileNames : 'Upload Images'
+                "
+              />
+              <!-- <button mat-flat-button color="primary">Select File</button> -->
+            </mat-toolbar>
+
+            <input
+              type="file"
+              id="fileInput"
+              name="fileInput"
+              accept="image/*"
+              multiple
+              (change)="onFileChange($event)"
+            />
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Caption</mat-label>
+          <input matInput formControlName="caption" />
+        </mat-form-field>
+      </mat-card-content>
+
+      <div>
+        <img *ngFor="let preview of previews" [src]="preview" class="preview" />
+      </div>
+      <br />
+      <button mat-raised-button color="primary" type="submit">
+        Upload Post
+      </button>
+    </form>
+  </mat-card>
+</div>

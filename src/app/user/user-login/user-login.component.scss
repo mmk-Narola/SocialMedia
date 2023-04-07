@@ -1,0 +1,35 @@
+mat-card {
+  margin: 50px 0px 0px 35%;
+  width: 30%;
+
+  mat-form-field {
+    width: 100%;
+  }
+  .mat-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .signup {
+    h3 {
+      margin: 9px 0px 0px 100px;
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.forgetPassword-signed {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mat-card-header-text {
+  margin: 2px 0px 19px -29px;
+}

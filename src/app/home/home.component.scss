@@ -1,0 +1,52 @@
+div {
+  overflow: inherit;
+}
+
+a {
+  text-decoration: none;
+  font-size: 80%;
+  white-space: normal;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-elevation-z8 {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+.example-card {
+  max-width: 500px;
+  width: 25%;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  margin-left: 80px;
+  background-color: lightgray;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.mat-card-image {
+  background-size: cover;
+  height: 52vh;
+  width: 108%;
+  object-fit: cover;
+}

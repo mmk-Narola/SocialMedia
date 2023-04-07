@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="chat-list mat-elevation-z5">
+    <div class="search-input">
+      <mat-form-field appearance="outline">
+        <mat-label>Search Friend</mat-label>
+        <input
+          matInput
+          placeholder="Search Friend..."
+          [formControl]="searchControl"
+          (change)="onChangeEvent($event)"
+        />
+      </mat-form-field>
+      <!-- <mat-autocomplete #users="matAutocomplete">
+        <mat-option *ngFor="let item of allUsers">
+          {{ item.name }}
+        </mat-option>
+      </mat-autocomplete> -->
+    </div>
+
+    <mat-selection-list [multiple]="false">
+      <mat-divider></mat-divider>
+      <mat-list-option
+        *ngFor="let chat of allUsers"
+        (click)="selectUser(chat._id)"
+      >
+        <img
+          matListAvatar
+          src="http://192.168.1.241:8000{{
+            chat.image ? chat.image : 'userImg'
+          }}"
+        />
+
+        <p mat-line class="chat-title">
+          <span class="chat-name">
+            {{ chat.name }}
+          </span>
+        </p>
+        <p mat-line>
+          {{ chat.lastMessage }}
+        </p>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div class="message mat-elevation-z5">
+    <div class="message-header" *ngIf="selectedUser; else noMessage">
+      <img
+        matListAvatar
+        src="http://192.168.1.241:8000{{
+          selectedUser.image ? selectedUser.image : 'userImg'
+        }}"
+      />
+      <h2>{{ selectedUser.name }}</h2>
+    </div>
+    <ng-template #noMessage>
+      <div class="message-header">
+        <h2>Message</h2>
+      </div>
+    </ng-template>
+    <mat-divider></mat-divider>
+
+    <div class="chat-area">
+      <ng-container *ngFor="let item of allMsg">
+        <div
+          class="chat-bubble-container-sender"
+          *ngIf="item.fromSelf === true"
+        >
+          <div class="chat-bubble">
+            {{ item.message }}
+            <span class="chat-date">
+              {{ item.time | date }}
+            </span>
+          </div>
+        </div>
+        <div class="chat-bubble-container" *ngIf="item.fromSelf === false">
+          <div class="chat-bubble">
+            {{ item.message }}
+            <span class="chat-date">
+              {{ item.time | date }}
+            </span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="input-area">
+      <mat-form-field appearance="outline">
+        <mat-label>Message....</mat-label>
+        <input
+          matInput
+          placeholder="Enter yout message...."
+          [formControl]="message"
+          (keydown.enter)="sendMessage()"
+        />
+        <button mat-icon-button matSuffix (click)="sendMessage()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

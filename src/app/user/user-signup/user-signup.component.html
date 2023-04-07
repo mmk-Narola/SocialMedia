@@ -1,0 +1,103 @@
+<app-common-header></app-common-header>
+<div>
+  <mat-card class="mat-card">
+    <mat-card-header>
+      <mat-card-title> Ragistration </mat-card-title>
+      <h2>{{ addProuctMessage }}</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="userRegister" (ngSubmit)="onRegister()">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" name="title" formControlName="name" />
+        </mat-form-field>
+        <span
+          *ngIf="(f['name'].touched || submitted) && f['name'].errors?.['required']"
+        >
+          Name is required
+        </span>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            name="email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="(f['email'].touched || submitted) && f['email'].errors?.['required']"
+        >
+          Email is required
+        </span>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <span
+          *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']"
+        >
+          Password is required
+        </span>
+        <span
+          *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['pattern']"
+        >
+          Password should have minimum 5 characters, at least 1 uppercase,1
+          lowercase letter and 1 number and 1 symbol
+        </span>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Comfirm password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="confirmPassword"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <span
+          *ngIf="(f['confirmPassword'].touched || submitted) && f['confirmPassword'].errors?.['required']"
+        >
+          Confirm Password is required
+        </span>
+        <span *ngIf="f['confirmPassword'].errors?.['confirmedValidator']">
+          Confirm Password does Not match
+        </span>
+
+        <button mat-raised-button color="primary" type="submit">SignUp</button>
+        <div class="signup">
+          <h3>
+            already have account? Please Click
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active">
+              Login
+            </a>
+          </h3>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,45 @@
+<div class="navbar">
+  <div class="user">
+    <img src="http://192.168.1.241:8000{{ userImg }}" alt="" />
+    <h4 class="name">{{ userDetails?.name }}</h4>
+    <p class="mail">{{ userDetails?.email }}</p>
+  </div>
+  <div class="menu">
+    <div class="menu-head">
+      <span>Dashboard</span>
+    </div>
+    <div class="menu-item">
+      <button mat-button class="menu-button" routerLink="/dashboard/post">
+        <mat-icon> dashboard</mat-icon>
+        <span>Home</span>
+      </button>
+      <button
+        mat-button
+        class="menu-button"
+        routerLink="/dashboard/create-post"
+      >
+        <mat-icon>rate_review</mat-icon>
+        <span>Create Post</span>
+      </button>
+      <button mat-button class="menu-button">
+        <a
+          [routerLink]="['/home']"
+          routerLinkActive="router-link-active"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <mat-icon>comments</mat-icon>
+          <span>Display Post</span>
+        </a>
+      </button>
+      <button mat-button class="menu-button" routerLink="/dashboard/friends">
+        <mat-icon>people</mat-icon>
+        <span>Friends</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/dashboard/setting">
+        <mat-icon>settings</mat-icon>
+        <span>Setting</span>
+      </button>
+    </div>
+  </div>
+</div>

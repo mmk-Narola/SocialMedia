@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon [routerLink]="['/home']">all_inclusive</mat-icon>
+  </button>
+  <span [routerLink]="['/home']">MySocial</span>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  ></button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <button
+      mat-icon-button
+      matTooltipPosition="left"
+      matTooltip="Logout"
+      (click)="logout()"
+    >
+      <mat-icon>login</mat-icon>
+    </button>
+  </button>
+</mat-toolbar>

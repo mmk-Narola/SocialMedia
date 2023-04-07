@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  height: calc(100vh - 70px);
+
+  .chat-list {
+    width: 40%;
+    margin: 16px;
+    background: #c5cae9;
+    border-radius: 16px;
+    overflow: auto;
+
+    .search-input {
+      margin: 24px;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+
+    .chat-title {
+      display: flex !important;
+      justify-content: space-between;
+    }
+
+    .chat-name {
+      font-weight: 500;
+    }
+  }
+
+  .message {
+    width: 60%;
+    margin: 16px;
+    border-radius: 16px;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.05);
+
+    .message-header {
+      display: flex;
+      margin-bottom: 8px;
+
+      > img {
+        border-radius: 60%;
+        object-fit: cover;
+        margin-right: 16px;
+        height: 35px;
+      }
+
+      > h2 {
+        margin: 0;
+      }
+    }
+
+    .chat-area {
+      width: 100%;
+      height: calc(100vh - 270px);
+      background: url("../../../assets/bg-image.jpeg");
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+
+      > :first-child {
+        margin-top: auto;
+      }
+
+      .chat-bubble-container {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+
+        .chat-bubble {
+          background: white;
+          padding: 8px 100px 18px 8px;
+          margin: 0 0 10px 5px;
+          border-radius: 8px;
+          width: fit-content;
+          position: relative;
+
+          .chat-date {
+            position: absolute;
+            bottom: 2px;
+            right: 8px;
+            font-size: 0.7rem;
+            color: rgba(0, 0, 0, 0.6);
+          }
+        }
+      }
+
+      .chat-bubble-container-sender {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        .chat-bubble {
+          background: whitesmoke;
+          padding: 8px 100px 18px 8px;
+          margin: 0 5px 10px 5px;
+          border-radius: 8px;
+          width: fit-content;
+          position: relative;
+
+          .chat-date {
+            position: absolute;
+            bottom: 2px;
+            right: 8px;
+            font-size: 0.7rem;
+            color: rgba(0, 0, 0, 0.6);
+          }
+        }
+      }
+    }
+
+    .input-area {
+      mat-form-field {
+        width: 100%;
+      }
+      padding-top: 16px;
+      padding-bottom: 8px;
+    }
+  }
+}
